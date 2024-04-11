@@ -1,0 +1,9 @@
+apiVersion: mailerlite.com/v1
+kind: EmailSenderConfig
+metadata:
+  name: my-email-sender-config
+  namespace: default
+spec:
+  apiToken: "token-secrets"
+  provider: "mailersend"
+  senderEmail: "sender@you-mailersend-domain.com"

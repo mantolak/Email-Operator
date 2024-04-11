@@ -1,0 +1,10 @@
+apiVersion: mailerlite.com/v1
+kind: Email
+metadata:
+  name: test-email
+  namespace: default
+spec:
+  senderConfigRef: my-email-sender-config
+  recipientEmail: example@example.com
+  subject: Kubernetes Operator Test Email
+  body: Hello, have a nice day !

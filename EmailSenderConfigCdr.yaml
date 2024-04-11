@@ -1,0 +1,30 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: emailsenderconfigs.mailerlite.com
+spec:
+  group: mailerlite.com
+  names:
+    kind: EmailSenderConfig
+    plural: emailsenderconfigs
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                apiToken:
+                  type: string
+                  description: Mailer Token
+                provider:
+                  type: string
+                  description: Mailer Provider Name
+                senderEmail:
+                  type: string
+                  description: Sender Email

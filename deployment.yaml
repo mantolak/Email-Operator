@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-operator
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-operator
+  template:
+    metadata:
+      labels:
+        app: email-operator
+    spec:
+      serviceAccountName: email-operator
+      containers:
+        - name: email-operator
+          image: kubernetes_operator
+          imagePullPolicy: Never
+          command: ["kopf", "run", "email_operator.py"]
+          resources:
+            requests:
+              cpu: "800m"
+              memory: "256Mi"
+            limits:
+              cpu: "1"
+              memory: "512Mi"
